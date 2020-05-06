@@ -1,0 +1,7 @@
+https://www.reddit.com/r/learnpython/comments/8lv3fe/gui_help_tkinter_keeps_freezing_when_button_is/
+https://www.oipapio.com/question-3919121
+https://www.raspberrypi.org/forums/viewtopic.php?t=151001
+https://stackoverflow.com/questions/53525746/trying-to-fix-tkinter-gui-freeze-ups-using-threads
+https://stackoverflow.com/questions/44635546/tkinter-separating-processes
+https://riptutorial.com/tkinter/example/22870/-after--
+http://www.scoberlin.de/content/media/http/informatik/tkinter/x8996-event-processing.htm

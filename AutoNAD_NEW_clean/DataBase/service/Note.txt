@@ -1,0 +1,9 @@
+*service.json
+    This file is keeping the service's name
+*serviceMatchingDBName.db is the Database consisting of 1 table ,which is "service"
+, which has 4 columns
+service
+|-serviceName
+|-DBName
+|-file(corresponding file)
+        if service is weekly, so the file will be expressed as this, folder/file

@@ -1,0 +1,7 @@
+Name of the files in this folder is for Menu Bar
+by my convention, it will be named as
+menu_rootMenu_subMenu1_subMenu2_..._subMenuN.py
+Ex: menu_showDetail_showMBDCode and menu_showDetail_showService  can be illustrated as
+showDetail Menu
+|---------showDetail
+|---------showService

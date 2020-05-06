@@ -1,0 +1,7 @@
+This configFile.json is keeping the setting from the menu_setting.py
+consisting of
+-rootNADMonthly
+-rootNADWeekly
+-trendCheck
+-checkList
+as a key

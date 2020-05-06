@@ -1,0 +1,24 @@
+################################ METADATA ################################
+
+VERSION                         :         2.0
+DELIMITER                       :         '|'
+ENCODING_USED                   :         ASCII
+CHARACTER_SET_USED              :         UTF8
+NEW_LINE_FEED_CHAR              :         '\r\n'
+NUM_OF_DIMENSIONS               :         4
+
+################################ TRANSACTION DETAILS ################################
+
+RECORD_ID                       :         SFF_ARTIFI_C_WK_BIGC
+PROJECT_NAME                    :         RF_1118_W11800B_20190148
+COUNTRY                         :         THAILAND
+CATEGORY                        :         Artificial Concent. Syrup ;
+LAST_PERIOD                     :         WEEKLY - W4819 ; 
+DATE_TIME(WITH TIMEZONE)EXPORT  :         20191213 01:24:45 China Standard Time
+DATA_CENTRE_LOCATION            :         RF
+ARCHIVE_NAME                    :         SFF_ARTIFI_C_WK_BIGC_arch.ZIP
+ARCHIVE_SIZE                    :         6.126 MB
+NUM_OF_FILES                    :         7
+FILE_NAMES                      :         SFF_ARTIFI_C_WK_BIGC_MKT.csv; SFF_ARTIFI_C_WK_BIGC_PROD.csv; SFF_ARTIFI_C_WK_BIGC_FCT.csv; SFF_ARTIFI_C_WK_BIGC_PER.csv; SFF_ARTIFI_C_WK_BIGC_FACT_DATA.csv; SFF_ARTIFI_C_WK_BIGC_DIM.csv; SFF_ARTIFI_C_WK_BIGC_META_DATA.txt
+FILE_TYPE                       :         csv
+LIST_OF_CUBES                   :         N/A
