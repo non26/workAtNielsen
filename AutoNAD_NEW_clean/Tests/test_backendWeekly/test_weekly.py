@@ -4,7 +4,8 @@ from workAtNielsen.projectAtNielsen.AutoNAD_NEW_clean.BackEnd_Weekly import week
 # from BackEnd_Weekly import weekly_class_revamped
 import  pandas as pd
 class Test_Weekly(unittest.TestCase):
-    pathFileTrend = r"C:\nonContent\workAtNielsen\paralle\TrendCheck W05-09_20 _Feb_20 .xlsx"
+    # pathFileTrend = r"C:\nonContent\workAtNielsen\paralle\TrendCheck W05-09_20 _Feb_20 .xlsx"
+    pathFileTrend = r"C:\nonContent\workAtNielsen\paralle\TrendCheck W13-17_20 _Feb_20 .xlsx"
     fileNAD = "BIRD_NET-ST04900.xlsx"
 
     def test_findWeek(self):
@@ -28,7 +29,7 @@ class Test_Weekly(unittest.TestCase):
     def test_weekClass_skipRowNull(self):
         # Arrange
         # fileNAD = "BIRD_NET-ST04900.xlsx"
-        expected = 2
+        expected = 3
         # Act
         actual = weekly_class_revamped.Weekly._skipRowNull(
             pathNadFile=Test_Weekly.fileNAD, checkColumn=2)
@@ -63,30 +64,30 @@ class Test_Weekly(unittest.TestCase):
         # fileNAD = "BIRD_NET-ST04900.xlsx"
         expected_large_mbd = "Tops Total"
         expected_need2Check = {"Tops Total":{
-            "W0520":{
-                "Sales Value (Baht)":4785330.9,
-                "ND Selling":99.0,
-                "WD Selling":100.0
+            "W1320":{
+                "Sales Value (Baht)":1194337,
+                "ND Selling":10357,
+                "WD Selling":12893
             },
-            "W0620":{
-                "Sales Value (Baht)":3973853.9,
-                "ND Selling":97.0,
-                "WD Selling":99.0
+            "W1420":{
+                "Sales Value (Baht)":3606895,
+                "ND Selling":2301,
+                "WD Selling":1751
             },
-            "W0720": {
-                "Sales Value (Baht)": 3744036.8,
-                "ND Selling": 99.0,
-                "WD Selling": 100.0
+            "W1520": {
+                "Sales Value (Baht)": 3637297,
+                "ND Selling": 18680,
+                "WD Selling": 2767
             },
-            "W0820": {
-                "Sales Value (Baht)": 3933200.4,
-                "ND Selling": 97.0,
-                "WD Selling": 99.0
+            "W1620": {
+                "Sales Value (Baht)": 1591954,
+                "ND Selling": 13056,
+                "WD Selling": 8211
             },
-            "W0920": {
-                "Sales Value (Baht)": 4084410.4,
-                "ND Selling": 98.0,
-                "WD Selling": 99.0
+            "W1720": {
+                "Sales Value (Baht)": 2498801,
+                "ND Selling": 2970,
+                "WD Selling": 12071
             },
         },
         "column":{
@@ -95,11 +96,11 @@ class Test_Weekly(unittest.TestCase):
             "WD Selling": 6
         },
         "row":{
-            "W0520":37,
-            "W0620":38,
-            "W0720":39,
-            "W0820":40,
-            "W0920":41
+            "W1320":5,
+            "W1420":6,
+            "W1520":7,
+            "W1620":8,
+            "W1720":9
         }
     }
         # pathFileTrend = r"C:\nonContent\workAtNielsen\paralle\TrendCheck W05-09_20 _Feb_20.xlsx"

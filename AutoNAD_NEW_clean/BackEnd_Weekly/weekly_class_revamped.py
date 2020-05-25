@@ -88,10 +88,10 @@ class Weekly(INAD):
         rowth = 0
         skipRow = Weekly._skipRowNull(pathFileNAD, 2, )
         rowth += skipRow
-        skipRow = Weekly._skipRowNotNull(pathFileNAD, 2, skipRow)
-        rowth += skipRow
-        skipRow = Weekly._skipRowNull(pathFileNAD, 2, rowth)
-        rowth += skipRow
+        # skipRow = Weekly._skipRowNotNull(pathFileNAD, 2, skipRow)
+        # rowth += skipRow
+        # skipRow = Weekly._skipRowNull(pathFileNAD, 2, rowth)
+        # rowth += skipRow
         return rowth
 
     # @override
@@ -118,10 +118,6 @@ class Weekly(INAD):
         :param largest_MBD:
         :return: df1 = dataFrame of the largest MBD in NAD Weekly
         """
-        # self.skipRow = 1
-        # self.skipRow = self._skipRowNull(pathFileNAD, 2, self.skipRow) + 1 # +1 is meant for header
-        # self.skipRow = self._skipRowNotNull(pathFileNAD, 2, self.skipRow)
-        # self.skipRow = self._skipRowNull(pathFileNAD, 2, self.skipRow) + 1 # +1 is meant for header
         self.skipRow = Weekly._rowToWantedTable(pathFileNAD)
         df1 = pd.DataFrame(pd.read_excel(pathFileNAD, skiprows=[i for i in range(self.skipRow)], sheet_name=sheetName))
         df1.rename(columns={df1.columns[0]: "MBD", df1.columns[1]: "period"}, inplace=True)

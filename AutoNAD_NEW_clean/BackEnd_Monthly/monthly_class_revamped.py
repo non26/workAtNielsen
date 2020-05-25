@@ -102,9 +102,10 @@ class Monthly(INAD):
                     continue
         conn.sql_closeConn()
 
-    def _skipRowNull(self, fileNAD):
-        df1 = pd.DataFrame(pd.read_excel(fileNAD, header=None))
+    def _skipRowNull(self, fileNAD, sheetName="WSP_Sheet1"):
+        df1 = pd.DataFrame(pd.read_excel(fileNAD, header=None, sheet_name=sheetName))
         skipRow = 0
+        # start counting at column 0th
         for row in range(len(df1)):
             null = df1.iloc[:, 0].at[row]
             if str(null) == "nan" or str(null) == "":
@@ -112,23 +113,26 @@ class Monthly(INAD):
                 skipRow += 1
             else:
                 break
+        skipRow -= 1
         return skipRow
 
-    def _readNADFile(self, fileNAD=None, sheetName=None):
+    def _readNADFile(self, fileNAD=None, sheetName="WSP_Sheet1"):
         self.skipRow = self._skipRowNull(fileNAD)
         if sheetName:
             df1 = pd.DataFrame(pd.read_excel(fileNAD, skiprows=[i for i in range(self.skipRow)], sheet_name=sheetName))
         else:
             df1 = pd.DataFrame(pd.read_excel(fileNAD, skiprows=[i for i in range(self.skipRow)]))
-        df1.rename(columns={df1.columns[0]:"MBD", df1.columns[1]:"MBDCode", df1.columns[2]:"period"}, inplace=True)
-
+        # df1.rename(columns={df1.columns[0]:"MBD", df1.columns[1]:"MBDCode", df1.columns[2]:"period"}, inplace=True)
+        df1.rename(columns={df1.columns[0]: "MBD", df1.columns[1]: "MBDCode"}, inplace=True)
         # find the rest of hidden fact
         for fact_stock in self._findFactWithStockWord(list(df1.columns)):
             self.hiddenFact.append(fact_stock)
         for fact in self._findHiddenFact(list(df1.columns)):
             self.hiddenFact.append(fact)
         # find the hidden MBD
-        for mbd in self._findHiddenMBD(df1["MBD"].to_list(), df1["MBDCode"].to_list()):
+        mbdcode = [x for x in df1["MBDCode"].to_list() if str(x) != "nan"]
+        mbd = df1["MBD"].to_list()[:len(mbdcode)]
+        for mbd in self._findHiddenMBD(mbd, mbdcode):
             self.hiddenMBD.append(mbd)
 
         df1["number"] = np.arange(0, len(df1))  # insert new column called "number" after last column

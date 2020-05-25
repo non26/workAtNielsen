@@ -1,0 +1,7 @@
+hiddenMBD.db is Database keeping the information about MBD, consisting of 4 columns
+in hiddenMBD table
+hiddenMBD
+|-MBDCode which is PRIMARY KEY
+|-DESCRIPTION
+|-Hide MBD
+|-Show Hide

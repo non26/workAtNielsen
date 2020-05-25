@@ -62,14 +62,18 @@ class Test_Monthly(unittest.TestCase):
         # Arrange
         mbdCode1 = "M00AAA1"
         mbdCode2 = "AD111"
+        mbdCode3 = "M00AA1"
         expected1 = "AAA1"
         expected2 = "AD111"
+        expected3 = 'AA1'
         # Act
         actual1 = monthly_class_revamped.Monthly._findMBDCode(mbdCode1)
         actual2 = monthly_class_revamped.Monthly._findMBDCode(mbdCode2)
+        actual3 = monthly_class_revamped.Monthly._findMBDCode(mbdCode3)
         # Assert
         self.assertEqual(expected1, actual1)
         self.assertEqual(expected2, actual2)
+        self.assertEqual(expected3, actual3)
 
     def test_classMonthly__findHiddenFact(self):
         # Arrange
@@ -82,7 +86,7 @@ class Test_Monthly(unittest.TestCase):
             , "Reserved Stock (KG)"
         ]
         expected.sort()
-        fileNAD = "BREK_CER-RM05830.xlsx"
+        # fileNAD = "BREK_CER-RM05830.xlsx"
         columnsName =[
                     "Sales Volume(Tsd.Units)"
                     , "Sales Volume(KG)"
@@ -113,8 +117,9 @@ class Test_Monthly(unittest.TestCase):
 
     def test_classMonthly__skipRowNull(self):
         # Arrange
-        fileNAD = "BREK_CER-RM05830.xlsx"
-        expected = 2
+        # fileNAD = "BREK_CER-RM05830.xlsx"
+        fileNAD = r"C:\nonContent\workAtNielsen\projectAtNielsen\formatNAD_afterLeave1\CANDY-RM04400.xlsx"
+        expected = 3
         test = monthly_class_revamped.Monthly()
         # Act
         actual = test._skipRowNull(fileNAD)
@@ -203,20 +208,20 @@ class Test_Monthly(unittest.TestCase):
 
     def test_classMonthly__readNADFile(self):
         # Arrange
-        fileNAD = "BREK_CER-RM05830.xlsx"
-        expected_largeMBD = "Total Thailand+MTSR"
-        expected_largeMBDCode = "M00AAA1"
+        fileNAD = r"C:\nonContent\workAtNielsen\projectAtNielsen\formatNAD_afterLeave1\CANDY-RM04400.xlsx"
+        expected_largeMBD = "Total Thailand"
+        expected_largeMBDCode = "M00AA1"
         expected_value = {
             expected_largeMBD: {
-                "Sales Value (Tsd.Baht)": 71689.491
-                , "ND Selling": 25
+                "Sales Value (Tsd.Baht)": 41458
+                , "ND Selling": 92
                 , "WD Selling": 100
             }
             , "row": 0
             , "column":{
-                "Sales Value (Tsd.Baht)": 5
-                , "ND Selling": 17
-                , "WD Selling": 18
+                "Sales Value (Tsd.Baht)": 4
+                , "ND Selling": 16
+                , "WD Selling": 17
             }
         }
         test = monthly_class_revamped.Monthly()

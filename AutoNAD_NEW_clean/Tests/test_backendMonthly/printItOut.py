@@ -1,13 +1,17 @@
 import pandas as pd
-import numpy as np
-# fileNAD = "BABY_SUP-RM18107.xlsx"
-# df1 = pd.DataFrame(pd.read_excel(fileNAD, skiprows=[i for i in range(2)]))
-# df1.rename(columns={df1.columns[0]: "MBD", df1.columns[1]: "period"}, inplace=True)
-# df1["number"] = np.arange(0, len(df1))
-# new_row = {col: index for index, col in enumerate(df1.columns)}
-# df1 = df1.append(new_row, ignore_index=True)
-# print(df1)
-fileNAD = "BREK_CER-RM05830.xlsx"
-sheetName = None
-df1 = pd.DataFrame(pd.read_excel(fileNAD, skiprows=[i for i in range(2)]))
-print(list(df1.columns))
+fileNAD = r"C:\nonContent\workAtNielsen\projectAtNielsen\formatNAD_afterLeave1\CANDY-RM04400.xlsx"
+skipRow = 3
+sheetName = "WSP_Sheet1"
+if sheetName:
+    df1 = pd.DataFrame(pd.read_excel(fileNAD, skiprows=[i for i in range(skipRow)], sheet_name=sheetName))
+else:
+    df1 = pd.DataFrame(pd.read_excel(fileNAD, skiprows=[i for i in range(skipRow)]))
+# df1.rename(columns={df1.columns[0]:"MBD", df1.columns[1]:"MBDCode", df1.columns[2]:"period"}, inplace=True)
+df1.rename(columns={df1.columns[0]: "MBD", df1.columns[1]: "MBDCode"}, inplace=True)
+print(df1)
+print(df1["MBD"].to_list())
+print(df1["MBDCode"].to_list())
+l1 = [x for x in df1["MBDCode"].to_list() if str(x) != "nan"]
+length = len(l1)
+print(df1["MBD"].to_list()[:length])
+print(l1)
